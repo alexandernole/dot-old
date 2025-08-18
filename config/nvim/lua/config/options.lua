@@ -1,10 +1,8 @@
 local g = vim.g
 local opt = vim.opt
-local b = vim.b
 
-Personal.shell.configure_windows()
+Util.terminal.setup_windows("bash")
 
-g.trouble_lualine = false
 g.ai_cmp = false
 
 opt.showcmd = false

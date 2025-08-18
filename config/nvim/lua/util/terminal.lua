@@ -1,9 +1,14 @@
----@class personal.util.shell
+---@class util.terminal
 local M = {}
 
-function M.configure_windows()
+---@param shell string
+function M.setup_windows(shell)
   if not LazyVim.is_win() then
     return
+  end
+
+  if shell == "pwsh" or shell == "powershell" then
+    return M.use(shell)
   end
 
   local home = vim.fn.getenv("HOME")
@@ -16,18 +21,23 @@ function M.configure_windows()
 
   for key, path in pairs(paths) do
     if string.find(vim.o.shell, key, 1, true) then
-      M.use(path)
       vim.o.shellcmdflag = "-s -c"
-      return
+      return M.use(path)
     end
   end
-
-  M.use("pwsh")
 end
 
 ---@param shell string
 function M.use(shell)
   LazyVim.terminal.setup(shell)
+end
+
+function M.open()
+  require("floaterm").open()
+end
+
+function M.hide()
+  require("floaterm").toggle()
 end
 
 return M

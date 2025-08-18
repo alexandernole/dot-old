@@ -1,5 +1,4 @@
-_G.Personal = require("personal.util")
-
+_G.Util = require("util")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -21,19 +20,16 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins.predetermined" },
   },
-  defaults = {
-    lazy = false,
-    version = false,
-  },
   install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
+  defaults = { lazy = true, version = false },
+  checker = { enabled = true, notify = true },
   performance = {
     rtp = {
       disabled_plugins = {
         "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
