@@ -7,7 +7,6 @@ return {
         local bg = colors.bg
         local dark = colors.bg_dark
 
-        hl.TabLineFill = { bg = dark }
         hl.InclineNormal = { bg = colors.magenta2, fg = colors.black }
         hl.InclineNormalNC = { bg = bg }
         hl.DapUINormal = { bg = dark }

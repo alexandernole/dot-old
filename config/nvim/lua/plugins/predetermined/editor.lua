@@ -24,25 +24,11 @@ return {
       spec = {
         { "<leader>o", group = "overseer", icon = "" },
         { "<leader>L", group = "lazyvim" },
-        {
-          "<leader>N",
-          group = "nvzone",
-          icon = { icon = "", color = "purple" },
-        },
-        {
-          "<leader>Nt",
-          group = "typing",
-          icon = { icon = "", color = "yellow" },
-        },
-        {
-          "<leader>Nts",
-          icon = { icon = "", color = "green" },
-        },
-        {
-          "<leader>NT",
-          icon = { icon = "󰥔", color = "red" },
-        },
+        { "<leader>N", group = "nvzone", icon = { icon = "", color = "purple" } },
+        { "<leader>Nt", group = "typing", icon = { icon = "", color = "yellow" } },
+        { "<leader>Nts", icon = { icon = "", color = "green" } },
         { "<leader>Ntt", icon = "" },
+        { "<leader>NT", icon = { icon = "󰥔", color = "red" } },
       },
     },
   },

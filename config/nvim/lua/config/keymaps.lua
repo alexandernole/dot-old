@@ -1,7 +1,11 @@
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
-Util.toggle.key_spam()
+Snacks.toggle({
+  name = "Key Spam",
+  get = function() return Util.key_spam.active end,
+  set = function(state) Util.key_spam[state and "enable" or "disable"]() end,
+}):map("<leader>uk")
 
 -- Move Lines
 map("n", "<A-Down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
@@ -13,20 +17,24 @@ map("v", "<A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", 
 
 -- floating terminal
 nomap("n", "<leader>fT")
-map("n", "<leader>ft", function() Util.terminal.open() end, { desc = "Terminal (Root Dir)" })
-map("n", "<c-/>", function() Util.terminal.open() end, { desc = "Terminal (Root Dir)" })
-map("n", "<c-_>", function() Util.terminal.open() end, { desc = "which_key_ignore" })
+map("n", "<leader>ft", function() Util.terminal.toggle() end, { desc = "Terminal (Root Dir)" })
+map("n", "<c-/>", function() Util.terminal.toggle() end, { desc = "Terminal (Root Dir)" })
+map("n", "<c-_>", function() Util.terminal.toggle() end, { desc = "which_key_ignore" })
 
 -- Terminal Mappings
-map("t", "<C-/>", function() Util.terminal.hide() end, { desc = "Hide Terminal" })
-map("t", "<c-_>", function() Util.terminal.hide() end, { desc = "which_key_ignore" })
+map("t", "<C-/>", function() Util.terminal.toggle() end, { desc = "Hide Terminal" })
+map("t", "<c-_>", function() Util.terminal.toggle() end, { desc = "which_key_ignore" })
 
 -- LazyVim Changelog
 map("n", "<leader>Lc", function() LazyVim.news.changelog() end, { desc = "Changelog" })
 map("n", "<leader>Le", function() LazyVim.extras.show() end, { desc = "Extras" })
 
 -- nvzone
-Util.toggle.keys()
+Snacks.toggle({
+  name = "Keys",
+  get = function() return require("showkeys.state").visible end,
+  set = function(state) require("showkeys")[state and "open" or "close"]() end,
+}):map("<leader>Nk")
 map("n", "<leader>NT", function() require("timerly").toggle() end, { desc = "Timerly Toggle" })
 map("n", "<leader>Nts", function() require("typr").open() end, { desc = "Start" })
 map("n", "<leader>Ntt", function() require("typr.stats").open() end, { desc = "Stats" })

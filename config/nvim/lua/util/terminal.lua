@@ -32,11 +32,7 @@ function M.use(shell)
   LazyVim.terminal.setup(shell)
 end
 
-function M.open()
-  require("floaterm").open()
-end
-
-function M.hide()
+function M.toggle()
   require("floaterm").toggle()
 end
 

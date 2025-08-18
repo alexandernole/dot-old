@@ -1,7 +1,6 @@
 ---@class util
 ---@field terminal util.terminal
 ---@field key_spam util.key_spam
----@field toggle util.toggle
 local M = {}
 
 setmetatable(M, {
