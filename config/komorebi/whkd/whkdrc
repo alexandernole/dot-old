@@ -1,0 +1,88 @@
+.shell pwsh
+
+# Basic Komorebi stuff
+lwin + f: komorebic toggle-monocle
+lwin + q: komorebic close
+lwin + shift + q: komorebic close
+lwin + shift + r: taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden; komorebic reload-configuration
+
+lwin + n: komorebic retile
+lwin + space: komorebic cycle-layout next
+
+# Focus controls
+lwin + up: komorebic focus up
+lwin + down: komorebic focus down
+lwin + left: komorebic focus left
+lwin + right: komorebic focus right
+lwin + k: komorebic focus up
+lwin + j: komorebic focus down
+lwin + h: komorebic focus left
+lwin + l: komorebic focus right
+
+# Resizing
+lwin + ctrl + l: komorebic resize-axis horizontal increase
+lwin + ctrl + right: komorebic resize-axis horizontal increase
+lwin + ctrl + h: komorebic resize-axis horizontal decrease
+lwin + ctrl + left: komorebic resize-axis horizontal decrease
+lwin + ctrl + k: komorebic resize-axis vertical increase
+lwin + ctrl + up: komorebic resize-axis vertical increase
+lwin + ctrl + j: komorebic resize-axis vertical decrease
+lwin + ctrl + down: komorebic resize-axis vertical decrease
+
+# Flip layouts
+lwin + shift + f: komorebic flip-layout horizontal-and-vertical
+lwin + alt + k: komorebic flip-layout vertical
+lwin + alt + j: komorebic flip-layout vertical
+lwin + alt + l: komorebic flip-layout horizontal
+lwin + alt + h: komorebic flip-layout horizontal
+lwin + alt + up: komorebic flip-layout vertical
+lwin + alt + down: komorebic flip-layout vertical
+lwin + alt + right: komorebic flip-layout horizontal
+lwin + alt + left: komorebic flip-layout horizontal
+
+# Move windows
+lwin + shift + k: komorebic move up
+lwin + shift + j: komorebic move down
+lwin + shift + h: komorebic move left
+lwin + shift + l: komorebic move right
+lwin + shift + up: komorebic move up
+lwin + shift + down: komorebic move down
+lwin + shift + left: komorebic move left
+lwin + shift + right: komorebic move right
+
+# Toggle floating
+lwin + shift + space: komorebic toggle-float
+
+# Workspaces and monitors
+lwin + 1: komorebic focus-workspace 0
+lwin + 2: komorebic focus-workspace 1
+lwin + 3: komorebic focus-workspace 2
+lwin + 4: komorebic focus-workspace 3
+lwin + 5: komorebic focus-workspace 4
+lwin + 6: komorebic focus-workspace 5
+lwin + 7: komorebic focus-workspace 6
+lwin + 8: komorebic focus-workspace 7
+lwin + 9: komorebic focus-workspace 8
+lwin + 0: komorebic focus-workspace 9
+
+lwin + tab: komorebic cycle-monitor next
+lwin + shift + tab: komorebic cycle-monitor previous
+alt + tab: komorebic cycle-monitor next
+alt + shift + tab: komorebic cycle-monitor previous
+
+lwin + shift + 1: komorebic move-to-workspace 0
+lwin + shift + 2: komorebic move-to-workspace 1
+lwin + shift + 3: komorebic move-to-workspace 2
+lwin + shift + 4: komorebic move-to-workspace 3
+lwin + shift + 5: komorebic move-to-workspace 4
+lwin + shift + 6: komorebic move-to-workspace 5
+lwin + shift + 7: komorebic move-to-workspace 6
+lwin + shift + 8: komorebic move-to-workspace 7
+lwin + shift + 9: komorebic move-to-workspace 8
+lwin + shift + 0: komorebic move-to-workspace 9
+
+# Additional keys
+lwin + return: Start-Process wezterm-gui # Terminal
+lwin + shift + return: Start-Process explorer # File manager
+lwin + d: Start-Process $env:LOCALAPPDATA\FlowLauncher\Flow.Launcher.exe # Application launcher
+lwin + w: Start-Process brave # Web browser
